@@ -1,0 +1,70 @@
+Cenario 1: Um novo usuário deve ser capaz de criar uma conta
+
+(Gerkin)
+Dado que um novo usuário deseje utilizar os recursos da plataforma
+Então este usuário deve criar uma conta
+
+
+Precondição: O usuário deve acessar a plataforma pela URL (​ http://automationpractice.com/​ )
+
+Steps
+
+1 - Usuário acessa a página de autenticação
+2 - Usuário adiciona seu email e clica em criar conta
+3 - Usuario adiciona seus dados pessoais e clica no botão de registro
+
+Resultado esperado
+
+O usuário deverá ser cadastrado e direcionado para a página de sua conta
+
+************************************************************************************************
+
+Cenario 2: Um usuario pode realizar a compra de produtos
+
+(Gerkin)
+Dado que um usuário cadastrado deseje realizar a compra de produtos
+Quando o usuário selecionar os produtos a serem comprados
+E adicionar no carrinho
+E aceitar os termos de serviço
+E selecionar o método de pagamento
+Então o usuário pode finaliar a compra
+E ser direcionado para a tela de Histórico de produtos
+
+
+Precondição: O usuário deve estar logado
+
+Steps
+1 - Usuário pesquisa os produtos a serem comprados
+2 - Adiciona os produtos no carrinho
+3 - Verifica os dados dos produtos e seus dados pessoais
+4 - Aceita os termos de serviço
+5 - Seleciona o método de pafamento
+4 - Finaliza a compra
+
+
+Resultado esperado:
+Usuario é direcionado para a página de Histórico de produtos e pode verificar sua compra
+
+*********************************************************************************************
+
+Cenario 3: Usuário faz a avaliação dos produtos comprados
+
+(Gerkin)
+Dado que um usuário cadastrado deseje realizar a avaliação de produtos comprados
+Quando o usuário realizar a compra de produtos
+E acessar a página de avaliação de produtos
+Então o usuário poderá deixar sua avaliação sobre o produto
+
+Precondição: O usuário faz uma compra
+
+Steps
+1 - Usuário pesquisa os produtos a serem avaliados
+2 - Acessa a página de avaliação do produto
+3 - Seleciona a quantidade de estrelas e adiciona um comentário para avaliação do produto
+4 - Clica no botão para enviar sua avaliação
+
+Resultado esperado:
+Será aberta uma página informando que a avalização deverá ser aceita por um administrador
+
+
+
