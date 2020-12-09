@@ -10,7 +10,7 @@ Suite Setup    Run Keywords    Suite Test Setup    AND    Create User Account   
 Suite Teardown    Close Browser 
 
 *** Test Cases ***
-Buy Products
+Buy Products from Site
     ${product_1}=    Create Product Data    Dresses    Evening Dresses     Printed Dress    Pink    S
     ${product_2}=    Create Product Data    Dresses    Evening Dresses     Printed Dress    Beige    M
     
