@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Buy Products
 
-Library   Selenium2Library
+Library   SeleniumLibrary
 
 Resource    ../keywords/create_account_keywords.robot
 Resource    ../keywords/products_keywords.robot

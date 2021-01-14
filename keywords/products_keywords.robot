@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Keywords about product page
 
-Library   Selenium2Library
+Library   SeleniumLibrary
 Library    FakerLibrary
 Library         String
 

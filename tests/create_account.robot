@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Create User Account
 
-Library   Selenium2Library
+Library   SeleniumLibrary
 
 Resource    ../keywords/create_account_keywords.robot
 

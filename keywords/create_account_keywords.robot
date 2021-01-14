@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Arquivo contendo as keywords para realizão dos tests
 
-Library   Selenium2Library
+Library   SeleniumLibrary
 Library    FakerLibrary
 Library         String
 
