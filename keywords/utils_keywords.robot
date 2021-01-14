@@ -1,20 +1,20 @@
 *** Settings ***
 Documentation    Utils/Common keywords
 
-Library   Selenium2Library
+Library   SeleniumLibrary
 Library    FakerLibrary
 Library         String
 
+Variables    ../robot_local_variables.py
+
 *** Variables ***
-${BROWSER}                                      gc
-${PAGE_URL}                                     http://automationpractice.com/index.php
 ${PAGE_INDEX_LOCATOR}                           css=#index
 ${SIGN_IN_LINK}                                 //a[contains(@class, "login")]
 ${AUTENTICATION_PAGE_HEADER}                    //h1[text()="Authentication"]
 
 *** Keywords ***
 Open Home Page
-    Open Browser    ${PAGE_URL}    ${BROWSER}
+    Open Browser    ${TESTED_HOST}    ${BROWSER}    
     Maximize Browser Window
     Wait Until Element Is Visible    ${PAGE_INDEX_LOCATOR}
 
