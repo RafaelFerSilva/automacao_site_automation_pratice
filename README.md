@@ -13,6 +13,4 @@
 
 ### Comando para executar os tests
 
-      robot -d  ./results tests/
-
-
+      robot -d  ./reports tests/

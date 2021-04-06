@@ -1,25 +1,27 @@
 *** Settings ***
 Documentation    Utils/Common keywords
 
-Library   Selenium2Library
-Library    FakerLibrary
+Library         SeleniumLibrary
+Library         FakerLibrary
 Library         String
 
+Variables    ../utils/config_variables.py
+
+Resource     ./create_account_keywords.robot
+
 *** Variables ***
-${BROWSER}                                      gc
-${PAGE_URL}                                     http://automationpractice.com/index.php
 ${PAGE_INDEX_LOCATOR}                           css=#index
 ${SIGN_IN_LINK}                                 //a[contains(@class, "login")]
 ${AUTENTICATION_PAGE_HEADER}                    //h1[text()="Authentication"]
 
 *** Keywords ***
 Open Home Page
-    Open Browser    ${PAGE_URL}    ${BROWSER}
+    Open Browser    ${TESTED_HOST}    ${BROWSER}
     Maximize Browser Window
     Wait Until Element Is Visible    ${PAGE_INDEX_LOCATOR}
 
 Suite Test Setup
-    ${user_data}=    Creat Test User
+    ${user_data}=    Create Test User Data
     Set Suite Variable    ${USER}    ${user_data}
     Open Home Page
 
@@ -29,6 +31,7 @@ Open Autenticantion Page
 
 Get User Email
     [Arguments]    ${first_name}    ${last_name}
+
     ${first_name_lower_case}=    Convert To Lower Case    ${first_name}
     ${last_name_lower_case}=    Convert To Lower Case    ${last_name}
     
@@ -46,9 +49,10 @@ Get User Password
 
     [Return]    ${password}
 
-Creat Test User
-    ${name}=    FakerLibrary.Name
-    ${first_name}    ${last_name}=    Split String    ${name}
+Create Test User Data
+    ${first_name}=    FakerLibrary.First Name
+    ${last_name}=    FakerLibrary.Last Name
+    ${name}=    Catenate    ${first_name}    ${last_name}
     ${email}=   Get User Email    ${first_name}    ${last_name}
     ${password}=    Get User Password
     ${address}=    FakerLibrary.Address 
@@ -87,12 +91,14 @@ Check Element Attribute
     Should Be Equal    ${return_value}    ${expected_value}
 
 Create User Account
-    [Arguments]    ${user}    ${user_can_receive_especial_offers}=true
+    [Arguments]    ${user_can_receive_especial_offers}=true
 
     Open Autenticantion Page
-    Set User Email And Click In Create Account Button    ${user.email}
-    Set User Personal Information, Address And Click In Register Button    ${user}    ${user_can_receive_especial_offers}
-    Verify If My Account Page Is Visible
+    Set User Email And Click In Create Account Button    ${USER.email}
+
+    Set User Informations    ${USER}    ${user_can_receive_especial_offers}
+    Click In Create Account Register Button And Check Register Success 
+    Check If My Account Page Is Visible
 
 String Replace
     [Documentation]  Replaces the ocurrences of '$$' for the respective strings.
