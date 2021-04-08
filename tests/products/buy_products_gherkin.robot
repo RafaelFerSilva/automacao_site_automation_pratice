@@ -11,7 +11,7 @@ Suite Setup    Run Keywords    Suite Test Setup
 
 Suite Teardown    Close Browser 
 
-Force Tags    products    buy_products
+Force Tags    products    buy_products_gherkin
 
 *** Test Cases ***
 The User Can By A Product 

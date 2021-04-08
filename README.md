@@ -32,6 +32,10 @@ Windows
 
       robot -d  ./reports --loglevel TRACE --pythonpath ./resources .\tests\
 
+Run tests using python script (Windows)
+
+      python run_tests.py
+
 Linux
 
       robot -d  reports --loglevel TRACE --pythonpath ./resources tests/

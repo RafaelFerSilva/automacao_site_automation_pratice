@@ -8,7 +8,7 @@ Resource    ../../resources/keywords/create_account_keywords.robot
 Suite Setup    Suite Test Setup
 Suite Teardown    Close Browser
 
-Force Tags    create_account
+Force Tags    create_account    create_account_gherkin
 
 *** Test Cases ***
 
