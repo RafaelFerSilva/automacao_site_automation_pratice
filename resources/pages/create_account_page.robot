@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Arquivo contendo as keywords para realizão dos tests
+Documentation    Arquivo contendo as keywords para mapeamento dos elementos da UI relacionados a criação de contas
 
 Library         SeleniumLibrary
 Library         FakerLibrary

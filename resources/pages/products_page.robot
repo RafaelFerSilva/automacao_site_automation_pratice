@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Keywords about product page
+Documentation    Arquivo contendo as keywords para mapeamento dos elementos da UI relacionados a produtos
 
 Library         SeleniumLibrary
 Library         FakerLibrary
