@@ -22,8 +22,7 @@ steps:
   continueOnError: true
 
 - task: PublishTestResults@2
-  displayName: 'Publish Test Results'
+  displayName: 'Publish Test Results outputxunit.xml'
   continueOnError: true
   inputs:
-    testResultsFiles: '**/TEST-*.xml'
-    searchFolder: 'D:\a\1\s\'
+    testResultsFiles: outputxunit.xml
