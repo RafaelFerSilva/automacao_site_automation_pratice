@@ -14,10 +14,11 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
+    npm install chromedriver
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- powershell:  robot -d  ./reports  -x 'outputxunit.xml'  --loglevel TRACE --variable BROWSER:"headlesschrome"  --pythonpath ./resources tests/
+- powershell:  robot -x 'outputxunit.xml' -d ./logs ./tests/
   displayName: 'Tests Execution'
   continueOnError: true
 
