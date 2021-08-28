@@ -17,7 +17,7 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    robot -d  reports  -x outputxunit.xml  --loglevel TRACE --variable BROWSER:"headlesschrome"  --pythonpath ./resources tests/
+    robot -d  ./reports  -x 'outputxunit.xml'  --loglevel TRACE --variable BROWSER:"headlesschrome"  --pythonpath ./resources tests/
   displayName: 'Tests Execution'
   continueOnError: true
 
