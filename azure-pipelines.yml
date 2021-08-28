@@ -26,4 +26,10 @@ steps:
   displayName: 'Publish Test Results outputxunit.xml'
   continueOnError: true
   inputs:
-    testResultsFiles: outputxunit.xml
+    testResultsFiles: '*.xml'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/*.xml'
+    testRunTitle: 'Publish test results for Robot Framework'
