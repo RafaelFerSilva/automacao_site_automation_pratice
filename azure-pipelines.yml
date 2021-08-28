@@ -18,15 +18,9 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- powershell:  robot -x 'outputxunit.xml' -d ./reports  --variable BROWSER:"headlesschrome" ./tests/
+- powershell:  robot -d ./reports  --variable BROWSER:"headlesschrome" ./tests/
   displayName: 'Tests Execution'
   continueOnError: true
-
-- task: PublishTestResults@2
-  displayName: 'Publish Test Results outputxunit.xml'
-  continueOnError: true
-  inputs:
-    testResultsFiles: '*.xml'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
