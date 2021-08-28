@@ -10,10 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - task: UsePythonVersion@0
-#   inputs:
-#     versionSpec: '3.x'
-#   displayName: 'Use Python $(python.version)'
 
 - script: |
     python -m pip install --upgrade pip
@@ -21,5 +17,5 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    robot -d  reports --loglevel TRACE --pythonpath ./resources tests/
+    robot -d  reports --loglevel TRACE --variable BROWSER:"headlesschrome"  --pythonpath ./resources tests/
   displayName: 'Tests Execution'
