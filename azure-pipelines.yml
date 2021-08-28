@@ -19,3 +19,14 @@ steps:
 - script: |
     robot -d  reports --loglevel TRACE --variable BROWSER:"headlesschrome"  --pythonpath ./resources tests/
   displayName: 'Tests Execution'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  continueOnError: true
+  inputs:
+    testResultsFiles: outputxunit.xml 
+    searchFolder: 'D:\a\1\s\'
+
+- task: PublishHtmlReport@1
+  inputs:
+    reportDir: 'D:\a\1\s\logs\log.html'
