@@ -7,23 +7,23 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+jobs: 
+  - job: "Teste_de_Regressao"
+    pool:
+      vmImage: ubuntu-latest
+      steps:
+      - script: |
+          python -m pip install --upgrade pip
+          npm install chromedriver
+          pip install -r requirements.txt
+        displayName: 'Install dependencies'
 
-steps:
+      - powershell:  robot -x 'outputxunit.xml' -d ./reports  --variable BROWSER:"headlesschrome" ./tests/
+        displayName: 'Tests Execution'
+        continueOnError: true
 
-- script: |
-    python -m pip install --upgrade pip
-    npm install chromedriver
-    pip install -r requirements.txt
-  displayName: 'Install dependencies'
-
-- powershell:  robot -x 'outputxunit.xml' -d ./reports  --variable BROWSER:"headlesschrome" ./tests/
-  displayName: 'Tests Execution'
-  continueOnError: true
-
-- task: PublishTestResults@2
-  condition: succeededOrFailed()
-  inputs:
-    testResultsFiles: '**/*.xml'
-    testRunTitle: 'Publish test results for Robot Framework'
+      - task: PublishTestResults@2
+        condition: succeededOrFailed()
+        inputs:
+          testResultsFiles: '**/*.xml'
+          testRunTitle: 'Publish test results for Robot Framework'
