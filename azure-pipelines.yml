@@ -26,7 +26,7 @@ steps:
     testResultsFiles: '**/*.xml'
     testRunTitle: 'Publish test results for Robot Framework'
     
-- task: PublishHtmlReport@1
+- task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
   displayName: 'Publish HTML Report'
   inputs:
     reportDir: './reports/log.html'
